@@ -74,7 +74,7 @@ public class CanonRotation : MonoBehaviour, InputSystem_Actions.ICanonActions
         if (context.canceled)
         {
             var projectile = Instantiate(Bullet, transform.position, Quaternion.identity); //canviar la posició on s'instancia
-            projectile.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(projectileSpeed, 0f);
+            projectile.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(projectileSpeed, _multiplier);
             projectileSpeed = 0f;
             isRaising = false;
         }
@@ -85,7 +85,6 @@ public class CanonRotation : MonoBehaviour, InputSystem_Actions.ICanonActions
         if (context.performed)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
-            //ShootPoint = 
 		}
     }
 }
